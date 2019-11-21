@@ -7,9 +7,60 @@
     <title>Weather-Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="Assets/CSS/style.css">    
+    <link rel="stylesheet" href="Assets/CSS/style.css">  
+   
 </head>
 <body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-</body>
-</html>
+   <h1>
+       Weather-Dashboard
+   </h1> 
+<div class="container">
+    <div class ="row">
+        <div class = "col md-6">
+            <form>
+               <div class ="form-group">
+                   <label for ="exampleSearch"> Enter Location:</label>
+                   <input type="email" class="form-control" id="exampleSearch" aria-describedby="emailHelp" placeholder="Enter location">
+                   <small id="searchHelp" class="form-text text-muted">Ex: Baltimore, Maryland</small>
+                 </div>
+                <button id="searchBtn" type="submit" class="btn btn-primary">Submit</button>
+               </form>
+
+               </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>  
+<script> 
+    var searchInput = "Baltimore,Maryland";
+    var APIKey = "166a433c57516f51dfab1f7edaed8413";
+    
+    // Here we are building the URL we need to query the database
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?" +
+    "q=" + searchInput +"&units=imperial&appid=" + APIKey;
+    
+    // Here we run our AJAX call to the OpenWeatherMap API
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    })
+    // We store all of the retrieved data inside of an object called "response"
+    .then(function(response) {
+        
+        // Log the queryURL
+        console.log(queryURL);
+        
+        // Log the resulting object
+        console.log(response); 
+        //log the current temp
+        console.log(response.main.temp)
+        //log lay
+        console.log(response.weather[0].icon);
+    });
+        
+    </script>
+       
+    </body>
+
+    </html>
