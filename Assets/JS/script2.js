@@ -131,11 +131,23 @@ $(document).ready(function(){
                 $("main-city-info").append(formattedToday);
                 $("main-city-info").append(todaysIconElement);
     
+            });
+
+            //sets UV index for today from seperate API
+            setTimeout(function (){
+                var completeUviURL = uviURL + apiKey + lat + long;
+                $.ajax({
+                    url:completeUviURL,
+                    method: "GET"
+                }).then(function (response) {
+                    cityTodaysUVIndex.text("UV Index: " + response.value);
+
+                })
+            },500);
 
 
                 
                 
-            })
             
         };
 
