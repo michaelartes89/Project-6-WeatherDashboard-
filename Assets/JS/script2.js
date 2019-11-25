@@ -254,6 +254,21 @@ $(document).ready(function(){
                 
             
         };
+        
+        function presentTodaysWeatherData(event) {
+            event.preventDefault();
+            
+            clearDailyForecast();
+
+            var userInput = cityUserInput.val();
+            todaysWeather (userInput);
+            
+            previousCitySearches =[];
+            getPreviousCities();
+
+        };
+
+        
 
 
 
