@@ -22,7 +22,22 @@ $(document).ready(function(){
     var IconURL= "https://openweathermap.org/img.wn";
     var IconURLsuffix = "@2x.png";
 
+    //create functions for each part of the applications functionality
+
+    //this function clears the previous seach info
+
+    function clearDailyForecast() {
+        mainCityInfoDiv.empty();
+        dayOneDisplayDiv.empty();
+        dayTWoDisplayDiv.empty();
+        dayThreeDisplayDiv.empty();
+        dayFourDisplayDiv.empty();
+        dayFiveDisplayDiv.empty();
+    };
+
     
+
+
 
 
 
