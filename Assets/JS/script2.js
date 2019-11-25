@@ -63,6 +63,20 @@ $(document).ready(function(){
           var thisButtonsCity =$(this).text();
           todaysWeather(thisButtonsCity);
       };
+      
+      function storeData(event) {
+          event.preventDefault();
+          currentCitySearch = cityUserInput.val();
+
+          if (currentCitySearch === "") {
+              alert("please put in a valid city")
+              return 
+          }
+
+          previousCitySearches.push(currentCitySearch);
+          
+          localStorage.setItem("city", JSON.stringify(previousCitySearches))
+      };
 
 
 
