@@ -18,6 +18,12 @@ $(document).ready(function(){
     var mainCityInfoDiv = $("#main-city-info");
     var previousCitySearchesDiv = $("#previous-searches");
 
+    //create variable for query URL in AJAX call, this is the one for the weather icons
+    var IconURL= "https://openweathermap.org/img.wn";
+    var IconURLsuffix = "@2x.png";
+
+    
 
 
-}
+
+});
