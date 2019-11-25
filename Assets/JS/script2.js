@@ -268,7 +268,15 @@ $(document).ready(function(){
 
         };
 
-        
+        function clearSearchHistory(event) {
+            event.preventDefault();
+
+            previousCitySearches =[];
+            localStorage.setItem("city", JSON.stringify(previousCitySearches))
+
+            previousCitySearchesDiv.empty();
+            
+        }
 
 
 
