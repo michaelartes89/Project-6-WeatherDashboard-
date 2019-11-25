@@ -34,8 +34,29 @@ $(document).ready(function(){
         dayFourDisplayDiv.empty();
         dayFiveDisplayDiv.empty();
     };
+    /*this function stores the content of previousCitySearches in local storage
+    and loops through the array to create a new div with content set as the user's previous entry which is then appended onto the secion */
+    function getPreviousCities() {
+        previousCitySearches =JSON.parse(localStorage.getItem("city"))
+        if (previousCitySearches === null) {
+            return
+        }
+        previousCitySearches= previousCitySearches.reverse();
 
-    
+        previousCitySearchesDiv.empty();
+
+        for (var i =0; i < previousCitySearches.length;i++) {
+            
+            var newPreviousCityDiv = $("<div>");
+            newPreviousCityDiv = newPreviousCityDiv.attr("class","previous-searches=-button")
+            newPreviousCityDiv.html(previousCitySearches[i])
+            
+            previousCitySearchesDiv.append(newPreviousCityDiv);
+        }
+
+    };
+
+
 
 
 
