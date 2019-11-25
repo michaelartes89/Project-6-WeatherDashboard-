@@ -57,6 +57,66 @@ $(document).ready(function(){
     };
 
 
+      function todaysWeather(cityName) {
+          var weatherURL = "https://api.openweathermap.org/data/2.5/weather?q=";
+          var uviURL  = "https://api.openweathermap.org/data/2.5/uvi?";
+          var fiveDayURL = "https://api.openweathermap.org/data/2.5/forecast?";
+          var apiKey = "appid=d2d1ec657659b9babb2a73150c4ac485";
+          var queryURL = weatherURL + cityName + "&" + apiKey;
+          var lat = "";
+          var long = "";
+          var cityID = "";
+          var cityNameText = "";
+          
+          //AJAX call to get today's weather data
+          
+          $.ajax({
+              url: queryURL,
+              method: "GET"
+              
+            }).then (function (response) {
+                console.log(response);
+                var tempF = (response.main.temp -273.15) * 1.80 + 32;
+                
+                cityTodaysTemperature.text("Temperature: " + tempF.toFixed(2))
+
+                cityTodaysWindSpeed.text("Humidity: " + response.main.humidity + "%");
+
+                cityTodaysWindSpeed.text("Wind Speed: " + response.wind.speed);
+
+
+                lat = "&lat=" + response.coords.lat;
+                long = "&lon" + response.coods.lon;
+                cityID = "&id=" + response.id;
+
+                cityNameText = response.name;
+
+                var todaysDate = new Date(response.dt *1000);
+                var todaysMonth = todaysDate.getMonth();
+                var todaysDay = todaysDate.getDay();
+                var todaysYear = todaysDate.getFullYear();
+
+                var formattedToday = cityNameText + " (" + todaysMonth + "/" + todaysDay + "/" + todaysYear + ")";
+
+                var todaysIcon = response.weather[0].icon;
+                var todaysIconURL = IconURL + todaysIcon + IconURLsuffix;
+
+                var todaysIconElement = $("<img>")
+                todaysIconElement.attr("src", todaysIconURL)
+                todaysIconElement.attr("class", "todays-icon")
+
+                $("main-city-info").append(formattedToday);
+                $("main-city-info").append(todaysIconElement);
+    
+
+
+                
+                
+            })
+            
+        };
+
+
 
 
 
