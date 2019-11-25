@@ -56,6 +56,15 @@ $(document).ready(function(){
 
     };
 
+      function callWeatherData(event) {
+          event.preventDefault();
+          clearDailyForecast();
+
+          var thisButtonsCity =$(this).text();
+          todaysWeather(thisButtonsCity);
+      };
+
+
 
       function todaysWeather(cityName) {
           var weatherURL = "https://api.openweathermap.org/data/2.5/weather?q=";
