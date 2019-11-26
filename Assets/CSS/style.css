@@ -1,0 +1,19 @@
+header {
+    text-align:center;
+    color:white;
+    background-color:#007bff;
+    font-weight: bolder;
+    font-size:30px;
+    padding: 15px;
+    font-size:30px;
+}
+.card{
+    font-size: smaller;
+    color: white;
+    width: 180px;
+    height: 220px;
+    display: inline-block;
+    margin-right: 40px;
+    line-height: 52px;
+    background:#007bff;
+}
