@@ -5,72 +5,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Weather-Dashboard</title>
+    <title>Similar But Legally Distinct From Frozen 2| Weather Dashboard</title>
+    <!-- Bootstrap Link-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="Assets/CSS/style.css">
-
+    <!-- Font Awsome Link -->
+    <script src="https://kit.fontawesome.com/4b155f78bb.js" crossorigin="anonymous"></script>
+    <!-- CSS Link -->
+    <link rel="stylesheet" type="text/css" href="Assets/CSS/style.css">
 </head>
 
 <body>
+    <!-- Header -->
+    <header>Weather Dashboard</header>
 
-    <header class="container-fluid">
-        <div class="text-center weather-dashboard h1 p-3"> Weather Dashboard</div>
-    </header>
-
-    <div class="container-fluid main-container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col md-3 col-sm-4 search-section">
-                <div class="search-for-city">Enter City:</div>
-                <form class="form-group">
-                    <input type="text" id="city-input" placeholder="enter city name here">
-                    <button class="btn btn-primary" id="city-input-button">Submit</button>
-                </form>
-                <div class="previous-seaches" id="previous-searches"></div>
-                <button class="btn btn-primary mt-2" id="clear-button">Clear Search History</button>
-            </div>
-            <div class="col-md-9 col-sm-8">
-                <div class="row">
-                    <div class="todays-weather mx-3">
-                        <div class="main-city-info" id="main-city-info"></div>
-                        <div class="weather-data" id="todays-temperature"></div>
-                        <div class="weather-data" id="todays-humidity"></div>
-                        <div class="weather-data" id="todays-wind-speed"></div>
-                        <div class="weather-data" id="todays-uv-index"></div>
+            <!-- Search Container -->
+            <div class="col-sm-3" id="search-container">
+                <div>
+                    <h5 id="search-header">Search for a City:</h5>
+                    <div class="input-group mb-3" id="inputGroup">
+                        <input type="text" class="form-control"
+                            aria-label="Recipient's username" aria-describedby="button-addon2" id="userInput">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary add-city" type="button" id="button-addon2">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
                     </div>
-
                 </div>
-                <div class="row mt-3">
-                    <div class="col five-day-forecast mx-3">
-                        <div class="row">
-                            <div class="five-day-forecast-text h2 mb-3"> Local 5 Day Forecast</div>
-                        </div>
-                        <div class="row">
-                            <div id="five-days-displayed">
-                                <div class="forcast-days" id="day-one-display"></div>
-                                <div class="forcast-days" id="day-two-display"></div>
-                                <div class="forcast-days" id="day-three-display"></div>
-                                <div class="forcast-days" id="day-four-display"></div>
-                                <div class="forcast-days" id="day-five-display"></div>
+                <!-- Current Search History -->
+                <div id="city-buttons-div"></div>
+                <!-- Previous Search History -->
+                <div id="city-buttons-lastdiv"></div>
+            </div>
 
-
-                            </div>
-                        </div>
+            <!-- Results Container -->
+            <div class="col-sm-9" id="results-container">
+                <div class="row">
+                    <div class="col-sm" id="current-weather-div"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm" id="fiveday-container">
+                        <h3>5-Day Forecast:</h3>
+                        <div id="fiveday-results-container"></div>
                     </div>
                 </div>
             </div>
         </div>
 
-    </div>
-
-
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="Assets/JS/script2.js"></script>
-
-
-
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <!-- moment -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+        <!-- link to script.js -->
+        <script src="Assets/JS/script2.js"></script>
 </body>
 
 </html>
